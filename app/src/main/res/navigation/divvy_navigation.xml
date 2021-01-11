@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/divvy_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/notesFragment"
+        android:name="com.example.divvy.view.NotesFragment"
+        android:label="fragment_notes"
+        tools:layout="@layout/fragment_notes" >
+        <action
+            android:id="@+id/notestousermenunav"
+            app:destination="@id/userMenuFragment" />
+        <action
+            android:id="@+id/notestohome"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/notestonotecreation"
+            app:destination="@id/noteCreationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tripsFragment"
+        android:name="com.example.divvy.view.TripsFragment"
+        android:label="fragment_trips"
+        tools:layout="@layout/fragment_trips" >
+        <action
+            android:id="@+id/tripstousermenunav"
+            app:destination="@id/userMenuFragment" />
+        <action
+            android:id="@+id/tripstohome"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userMenuFragment"
+        android:name="com.example.divvy.view.UserMenuFragment"
+        android:label="fragment_user_menu"
+        tools:layout="@layout/fragment_user_menu" >
+        <action
+            android:id="@+id/usermenutoarchivenav"
+            app:destination="@id/archiveFragment" />
+        <action
+            android:id="@+id/usermenutosettingsnav"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/usermenutobookmarkednotesnav"
+            app:destination="@id/bookmarkedNotesFragment" />
+        <action
+            android:id="@+id/usermenutobookmarkedtripsnav"
+            app:destination="@id/bookmarkedTripsFragment" />
+        <action
+            android:id="@+id/usermenutohome"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/archiveFragment"
+        android:name="com.example.divvy.view.ArchiveFragment"
+        android:label="fragment_archive"
+        tools:layout="@layout/fragment_archive" >
+        <action
+            android:id="@+id/archivetousermenunav"
+            app:destination="@id/userMenuFragment" />
+        <action
+            android:id="@+id/archivetohome"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.divvy.view.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/settingstousermenunav"
+            app:destination="@id/userMenuFragment" />
+        <action
+            android:id="@+id/settingstohome"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookmarkedNotesFragment"
+        android:name="com.example.divvy.view.BookmarkedNotesFragment"
+        android:label="fragment_bookmarked_notes"
+        tools:layout="@layout/fragment_bookmarked_notes" >
+        <action
+            android:id="@+id/bookmarkednotestousermenunav"
+            app:destination="@id/userMenuFragment" />
+        <action
+            android:id="@+id/bnotestohome"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookmarkedTripsFragment"
+        android:name="com.example.divvy.view.BookmarkedTripsFragment"
+        android:label="fragment_bookmarked_trips"
+        tools:layout="@layout/fragment_bookmarked_trips" >
+        <action
+            android:id="@+id/bookmarkedtripstousermenunav"
+            app:destination="@id/userMenuFragment" />
+        <action
+            android:id="@+id/btripstohome"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.divvy.view.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/hometousermenu"
+            app:destination="@id/userMenuFragment" />
+        <action
+            android:id="@+id/hometonotes"
+            app:destination="@id/notesFragment" />
+        <action
+            android:id="@+id/hometotrips"
+            app:destination="@id/tripsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteCreationFragment"
+        android:name="com.example.divvy.view.NoteCreationFragment"
+        android:label="NoteCreationFragment">
+        <action
+            android:id="@+id/notecreationtohome"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/notecreationtousermenu"
+            app:destination="@id/userMenuFragment" />
+    </fragment>
+</navigation>

@@ -1,0 +1,96 @@
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.divvy.viewmodel.ListViewModel"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+
+    android:id="@+id/frameLayout10"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.divvy.view.NotesFragment">
+
+
+    <ImageView
+        android:id="@+id/notes_to_home"
+        android:layout_width="276dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="29dp"
+        android:background="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <Button
+        android:id="@+id/notes_to_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="307dp"
+        android:layout_marginBottom="667dp"
+        android:text="Menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.592"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/createnoteFrag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Note"
+        app:layout_constraintBottom_toTopOf="@+id/ViewNotes"
+        app:layout_constraintEnd_toStartOf="@+id/loadNotes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notes_to_home" />
+
+    <Button
+        android:onClick="@{()->viewmodel.makeNotesVisible()}"
+        android:id="@+id/loadNotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="64dp"
+        android:text="@{viewmodel.saveOrUpdateButtonText}"
+        app:layout_constraintBottom_toTopOf="@+id/ViewNotes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notes_to_home"
+        app:layout_constraintVertical_bias="0.484" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:visibility="@{viewmodel.noteVisibility}"
+        android:id="@+id/ViewNotes"
+        android:layout_width="328dp"
+        android:layout_height="393dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginEnd="42dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notes_to_home" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="171dp"
+        android:layout_marginEnd="182dp"
+        android:text="Notes"
+        app:layout_constraintBottom_toTopOf="@+id/ViewNotes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createnoteFrag" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

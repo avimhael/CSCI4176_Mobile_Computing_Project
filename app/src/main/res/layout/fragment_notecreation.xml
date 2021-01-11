@@ -1,0 +1,192 @@
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.divvy.viewmodel.ListViewModel"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout20"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.divvy.view.NoteCreationFragment">
+
+        <Button
+            android:id="@+id/notecreationtousermenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:text="Menu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/notecreationtohomeimg"
+            android:layout_width="276dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="8dp"
+            android:background="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.853"
+            app:layout_constraintStart_toEndOf="@+id/home_to_menu"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_launcher_foreground" />
+
+        <EditText
+            android:id="@+id/noteKeepUntil"
+            android:layout_width="121dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:text="@={viewmodel.keepUntil}"
+            android:hint="Keep Until ..."
+            android:inputType="date"
+            android:textColorHighlight="#ff7eff15"
+            android:textColorHint="#ffff25e6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.449"
+            app:layout_constraintStart_toEndOf="@+id/noteCreatedOn"
+            app:layout_constraintTop_toBottomOf="@+id/noteAuthor" />
+
+        <EditText
+            android:id="@+id/noteAuthor"
+            android:layout_width="295dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="72dp"
+            android:layout_marginTop="176dp"
+            android:layout_marginEnd="60dp"
+            android:ems="10"
+            android:text="@={viewmodel.author}"
+            android:hint="Author ..."
+            android:inputType="textPersonName"
+            android:textColorHighlight="#ff7eff15"
+            android:textColorHint="#ffff25e6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.875"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/notecreationtohomeimg" />
+
+        <EditText
+            android:id="@+id/noteCreatedOn"
+            android:layout_width="121dp"
+            android:layout_height="41dp"
+            android:text="@={viewmodel.dateCreated}"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:hint="Created On ..."
+            android:inputType="date"
+            android:textColorHighlight="#ff7eff15"
+            android:textColorHint="#ffff25e6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/noteAuthor" />
+
+        <TextView
+            android:id="@+id/createdOnText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="100dp"
+            android:text="Created On"
+            app:layout_constraintBottom_toTopOf="@+id/noteCreatedOn"
+            app:layout_constraintEnd_toStartOf="@+id/keepUntilText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/noteAuthor"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/keepUntilText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Keep Until"
+            app:layout_constraintBottom_toTopOf="@+id/noteKeepUntil"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.295"
+            app:layout_constraintStart_toEndOf="@+id/noteCreatedOn"
+            app:layout_constraintTop_toBottomOf="@+id/noteAuthor"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/messageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="62dp"
+            android:layout_marginEnd="292dp"
+            android:text="Message"
+            app:layout_constraintBottom_toTopOf="@+id/noteBody"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/noteCreatedOn"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/submitnotebutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="76dp"
+            android:onClick="@{()->viewmodel.submitData()}"
+            android:text="@{viewmodel.submitButtonText}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/noteBody"
+            android:layout_width="289dp"
+            android:layout_height="152dp"
+            android:layout_marginStart="76dp"
+            android:layout_marginTop="68dp"
+            android:layout_marginEnd="95dp"
+            android:textColorHighlight="#ff7eff15"
+            android:textColorHint="#ffff25e6"
+            app:layout_constraintBottom_toTopOf="@+id/submitnotebutton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.326"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/noteCreatedOn">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/noteBodyInput"
+                android:layout_width="match_parent"
+                android:text="@={viewmodel.messageBody}"
+                android:layout_height="34dp"
+                android:hint="Write a note here ..." />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/authorText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="59dp"
+            android:layout_marginTop="159dp"
+            android:layout_marginEnd="310dp"
+            android:text="Author"
+            app:layout_constraintBottom_toTopOf="@+id/noteAuthor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/notecreationtousermenu" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="275dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="62dp"
+            android:layout_marginTop="38dp"
+            android:layout_marginEnd="74dp"
+            android:layout_marginBottom="54dp"
+            android:text="Write a note and members of your neighbourhood will be able to see it!"
+            app:layout_constraintBottom_toTopOf="@+id/authorText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/notecreationtohomeimg" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
